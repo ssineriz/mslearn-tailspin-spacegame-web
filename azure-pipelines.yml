@@ -48,18 +48,12 @@ steps:
   inputs:
     SonarCloud: 'SonarCloud connection 1'
     organization: '$(SonarOrganization)'
-<<<<<<< HEAD
-    scannerMode: 'MSBuild'
-=======
->>>>>>> b5b28b846d750de8f8cf29c28cd77e364085bec1
     projectKey: '$(SonarProjectKey)'
     projectName: '$(SonarProjectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
-<<<<<<< HEAD
-=======
   condition: |
     and
     (
@@ -67,7 +61,6 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
->>>>>>> b5b28b846d750de8f8cf29c28cd77e364085bec1
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
@@ -97,11 +90,6 @@ steps:
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
-<<<<<<< HEAD
-
-- task: SonarCloudPublish@1
-  displayName: 'Publish SonarCloud quality gate results'
-=======
   condition: |
     and
     (
@@ -119,7 +107,6 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
->>>>>>> b5b28b846d750de8f8cf29c28cd77e364085bec1
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
