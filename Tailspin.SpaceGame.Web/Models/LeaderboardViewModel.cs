@@ -35,25 +35,11 @@ namespace TailSpin.SpaceGame.Web.Models
     /// </summary>
     public struct ScoreProfile
     {
-        private Score _score;
-        private Profile _profile;
         // The player's score.
-        public Score Score { 
-            get {
-                return this._score;
-            }
-            set {
-                this._score = value;
-            }
-        }
+        public Score Score { get; set; }
+        
         // The player's profile.
-        public Profile Profile {
-            get {
-                return this._profile;
-            }
-            set {
-                this._profile = value;
-            }
-        }
+        public Profile Profile { get; set; }
+
     }
 }
